@@ -90,13 +90,23 @@ const clickToImage = event => {
     } else {
         const imgsrc = event.target.dataset.source;
         const instance = basicLightbox.create(
-            `<img class="big-img" src="${imgsrc}">`
-        );
-
-        instance.show();
+            `<img id="big-img" src="${imgsrc}">`
+      );
+      
+      instance.show();
+      const bigImg = document.getElementById('big-img');
+         if (bigImg) {
+             bigImg.style.width = '100%'; 
+             bigImg.style.height = 'auto'; 
+             bigImg.style.maxWidth = '1112px'; 
+             bigImg.style.maxHeight = '640px'; 
+         }
     }
-
-    console.log(event.target.dataset.source);
+  console.log(event.target.dataset.source);
 };
 
 list.addEventListener("click", clickToImage);
+
+
+
+
